@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CryptoEdu - Aprende sobre Blockchain</title>
+  <style>
+    :root {
+      --blue: #0077ff;
+      --dark: #0a2540;
+      --light: #f4f7fb;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .header {
+      background: var(--white);
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--blue);
+    }
+
+    /* Sections */
+    section {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    section.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(120deg, #dcefff, #ffffff);
+      border-radius: 12px;
+      margin-top: 30px;
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      padding: 12px 25px;
+      font-weight: 600;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #005fcc;
+      transform: scale(1.05);
+    }
+
+    /* Cards */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .list {
+      list-style: none;
+      text-align: left;
+      padding-left: 0;
+      max-width: 600px;
+      margin: 20px auto;
+      font-size: 1.05rem;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 400px;
+      margin: 30px auto;
+    }
+
+    .form input,
+    .form textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: none;
+    }
+
+    .form button {
+      background: var(--blue);
+      color: var(--white);
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .form button:hover {
+      background: #005fcc;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark);
+      color: var(--white);
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+    }
+
+    .footer .socials img {
+      width: 24px;
+      margin: 0 5px;
+      filter: invert(100%);
+      transition: transform 0.3s;
+    }
+
+    .footer .socials img:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a href="#" class="logo">CryptoEdu</a>
+    <nav class="nav">
+      <a href="#" data-section="inicio" class="active">Inicio</a>
+      <a href="#" data-section="bitcoin">Bitcoin</a>
+      <a href="#" data-section="ethereum">Ethereum</a>
+      <a href="#" data-section="riesgos">Riesgos</a>
+      <a href="#" data-section="contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- SECCIÓN INICIO -->
+  <section id="inicio" class="active">
+    <div class="hero">
+      <h1>Aprendé sobre Criptomonedas y Blockchain</h1>
+      <p>Guía completa para principiantes sobre el dinero digital del futuro.</p>
+      <button class="btn" id="btnGuia">Ver guía rápida</button>
+    </div>
+
+    <div class="info-grid">
+      <div class="card">
+        <h3>¿Qué es Bitcoin?</h3>
+        <p>Descubrí cómo funciona la primera criptomoneda descentralizada.</p>
+      </div>
+      <div class="card">
+        <h3>¿Qué es Ethereum?</h3>
+        <p>Conocé la plataforma de contratos inteligentes y apps descentralizadas.</p>
+      </div>
+      <div class="card">
+        <h3>Riesgos y seguridad</h3>
+        <p>Aprendé cómo proteger tus claves y evitar estafas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN BITCOIN -->
+  <section id="bitcoin">
+    <h1>¿Qué es Bitcoin?</h1>
+    <p>
+      Bitcoin es la primera criptomoneda del mundo, creada en 2009 por Satoshi Nakamoto. 
+      Permite enviar dinero sin bancos ni intermediarios, usando una red descentralizada.
+    </p>
+    <p>
+      La red funciona con tecnología blockchain, que guarda todas las transacciones en un registro público e inmutable.
+    </p>
+  </section>
+
+  <!-- SECCIÓN ETHEREUM -->
+  <section id="ethereum">
+    <h1>¿Qué es Ethereum?</h1>
+    <p>
+      Ethereum es una plataforma que permite crear aplicaciones descentralizadas (dApps) y contratos inteligentes.
+    </p>
+    <p>
+      Su criptomoneda, el Ether (ETH), se usa para pagar transacciones y ejecutar programas dentro de la red.
+    </p>
+  </section>
+
+  <!-- SECCIÓN RIESGOS -->
+  <section id="riesgos">
+    <h1>Riesgos y Seguridad</h1>
+    <ul class="list">
+      <li>✅ Guardá tus claves privadas en un lugar seguro, fuera de internet.</li>
+      <li>🚫 No confíes en inversiones con promesas de ganancias rápidas.</li>
+      <li>🧠 Verificá siempre los sitios y proyectos antes de invertir.</li>
+      <li>🔒 Usá contraseñas fuertes y autenticación en dos pasos.</li>
+    </ul>
+  </section>
+
+  <!-- SECCIÓN CONTACTO -->
+  <section id="contacto">
+    <h1>Contacto</h1>
+    <form id="contactForm" class="form">
+      <input type="text" id="nombre" placeholder="Tu nombre" required>
+      <input type="email" id="email" placeholder="Tu correo" required>
+      <textarea id="mensaje" placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 CryptoEdu — Proyecto educativo de Máximo Mayorga</p>
+    <div class="socials">
+      <a href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"></a>
+      <a href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube"></a>
+    </div>
+  </footer>
+
+  <script>
+    // Navegación entre secciones
+    const navLinks = document.querySelectorAll(".nav a");
+    const sections = document.querySelectorAll("section");
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const sectionId = link.dataset.section;
+
+        navLinks.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+
+        sections.forEach(sec => {
+          sec.classList.remove("active");
+          if (sec.id === sectionId) sec.classList.add("active");
+        });
+      });
+    });
+
+    // Botón guía
+    const btnGuia = document.getElementById("btnGuia");
+    if (btnGuia) {
+      btnGuia.addEventListener("click", () => {
+        alert("💡 Bitcoin fue creado en 2009 como el primer sistema de dinero digital descentralizado.");
+      });
+    }
+
+    // Formulario de contacto
+    const form = document.getElementById("contactForm");
+    if (form) {
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        alert("✅ ¡Mensaje enviado correctamente! Te responderemos pronto.");
+        form.reset();
+      });
+    }
+  </script>
+</body>
+</html>
