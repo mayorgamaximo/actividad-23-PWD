@@ -18,8 +18,7 @@ Código estructurado: HTML semántico, CSS modular y JavaScript limpio.
 📂 Estructura del proyecto
 📁 CryptoEdu/
 │
-├── index.html     # Archivo principal del sitio web
-└── (opcional) README.md
+└──  index.html     # Archivo principal del sitio web
 
 
 Todo el código (HTML, CSS y JS) se encuentra unificado dentro del archivo index.html para facilitar su ejecución sin dependencias adicionales.
